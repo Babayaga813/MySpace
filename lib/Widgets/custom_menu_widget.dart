@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_space/Helpers/Styles/Style.dart';
+import 'package:my_space/Helpers/Styles/style.dart';
 
 class CustomMenuWidget extends StatelessWidget {
   final IconData icon;
@@ -17,7 +17,7 @@ class CustomMenuWidget extends StatelessWidget {
       onTap: function,
       leading: Icon(
         icon,
-        color: CustomColors.iconColor,
+        color: CustomColors.blueColor,
       ),
       title: Text(
         menuText,

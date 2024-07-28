@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_space/Helpers/Styles/Style.dart';
-import 'package:my_space/bloc/theme_bloc.dart';
+import 'package:my_space/Helpers/Styles/style.dart';
+import 'package:my_space/bloc/theme_bloc/theme_bloc.dart';
 
 class SocialLinksWidget extends StatelessWidget {
   const SocialLinksWidget({super.key});

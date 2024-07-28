@@ -9,7 +9,8 @@ final class ThemeInitial extends ThemeState {
 
 final class DarkLightTheme extends ThemeState {
   final ThemeMode theme;
-  DarkLightTheme({required this.theme});
+  final String logoData;
+  DarkLightTheme({required this.logoData, required this.theme});
 }
 
 final class DarkTheme extends ThemeState {
