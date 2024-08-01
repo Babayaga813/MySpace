@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_space/Helpers/Navigation/app_routes.dart';
 import 'package:my_space/Helpers/Styles/style.dart';
+import 'package:my_space/bloc/phone_mail_service_bloc/phone_mail_service_bloc.dart';
 import 'package:my_space/bloc/theme_bloc/theme_bloc.dart';
 
 class MyApp extends StatelessWidget {
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget {
               BlocProvider<ThemeBloc>(
                 create: (context) => ThemeBloc(),
               ),
+              BlocProvider<PhoneMailServiceBloc>(
+                  create: (context) => PhoneMailServiceBloc())
             ],
             child: BlocBuilder<ThemeBloc, ThemeMode>(
               builder: (context, state) {

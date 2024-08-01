@@ -11,84 +11,118 @@ class SkillsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SideTitleWidget(text: "Technologies I have worked with"),
-        const Divider(),
+        const SizedBox(
+          height: 30,
+        ),
+        const SideTitleWidget(
+          topSpacing: 0,
+          title: "My Expertise",
+          subTitle: "Technologies I have worked with",
+          needSubTitle: true,
+          bottomSpacing: 20,
+        ),
         Wrap(
-          spacing: 5,
+          spacing: 12,
           children: [
             Chip(
-              label: const Text("Flutter"),
+              label: const Text(
+                "Flutter",
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100)),
             ),
             Chip(
-              label: const Text("Dart"),
+              label: const Text("Dart",
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100)),
             ),
             Chip(
-              label: const Text("Firebase"),
+              label: const Text("Firebase",
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100)),
             ),
             Chip(
-              label: const Text("BloC"),
+              label: const Text("BloC",
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100)),
             ),
             Chip(
-              label: const Text("MobX"),
+              label: const Text("MobX",
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100)),
             ),
             Chip(
-              label: const Text("Store Listing"),
+              label: const Text("Store Listing",
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100)),
             ),
             Chip(
-              label: const Text("GitHub"),
+              label: const Text("GitHub",
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100)),
             ),
             Chip(
-              label: const Text("MVVM"),
+              label: const Text("MVVM",
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100)),
             ),
             Chip(
-              label: const Text("Unity"),
+              label: const Text("Unity",
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100)),
             ),
             Chip(
-              label: const Text("C#"),
+              label: const Text("C#",
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100)),
             ),
             Chip(
-              label: const Text("API"),
+              label: const Text(
+                "API",
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(100)),
+            ),
+            Chip(
+              label: const Text("Blender",
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100)),
             ),
           ],
         ),
-        Row(
+        const SizedBox(
+          height: 30,
+        ),
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("To know more"),
-            TextButton(
-                onPressed: () {
-                  GoRouter.of(context).pushNamed(AppRouteConstants.resumeRoute);
-                },
-                child: const Text(
-                  "Resume",
-                  style: TextStyle(
-                      color: CustomColors.blueColor,
-                      decoration: TextDecoration.underline,
-                      decorationColor: CustomColors.blueColor),
-                )),
+            Text("Made in "),
+            Icon(
+              Icons.favorite,
+              color: CustomColors.blueColor,
+              size: 18,
+            ),
+            Text(
+              " with Flutter",
+            ),
           ],
+        ),
+        const SizedBox(
+          height: 5,
         ),
       ],
     );

@@ -1,19 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:my_space/Widgets/custom_carousel%20_widget.dart';
+import 'package:my_space/Widgets/side_title_widget.dart';
+import 'custom_project_card_widget.dart';
 
 class ProjectsWidget extends StatelessWidget {
   const ProjectsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return CustomCarouselWidget(
-        aspectRatio: 12 / 10,
-        titleText: "Projects",
-        subTitleText: "Here are few samples of me previous and ongoing work",
-        imagePaths: _projectImages,
-        descriptions: _projectDetails,
-        imageTitles: _projectNames,
-        needImageTitle: true);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SideTitleWidget(
+          title: "Projects",
+          subTitle: "Here are my few previous and ongoing work",
+          needSubTitle: true,
+          topSpacing: 32,
+          bottomSpacing: 32,
+        ),
+        ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: _projectImages.length,
+          itemBuilder: (context, index) {
+            return CustomProjectCardWidget(
+                projectImage: _projectImages[index],
+                projectName: _projectNames[index],
+                projectDetail: _projectDetails[index]);
+          },
+          separatorBuilder: (context, index) {
+            return const SizedBox(
+              height: 10,
+            );
+          },
+        )
+      ],
+    );
   }
 }
 
@@ -40,12 +61,12 @@ List<String> _projectNames = [
 ];
 
 List<String> _projectDetails = [
-  "Simple music application, developed using native spotify SDK. Where you crop your favourite part of your favorite song and listen to it.",
-  "A cab booking to manage your pick-up and drop details, alos get notified about your ride.",
-  "A betting application like My Fantasy, where different leagues can be created with team and get rewarded with your selected team. ",
-  "Personal portfolio app for displaying your project, work experience, tools and fields expertise in and contact details.",
-  "Building an Error sover application by integrating google's ml text extraction and gemini to get solutions and suggestions.",
-  "Building a higly responsive and adaptive application like Book My show",
-  "An highly interactive learning application used to learn about different types of networks, virtual data center to explore and learn about AWS global infrastructure.",
-  "Field Surveying app, used to place pipe in real world and calculate the total pipe and joint used and finally generate bill which can be exported as PDF."
+  "A music app that lets you crop favorite sections of songs and curate playlists. Built with the native Spotify SDK for Android and iOS, it uses method and event channels for a seamless music experience.",
+  "A cab booking app that manages pick-up and drop-off details, provides full control over booking data, and sends a 5-minute pre-ride notification.",
+  "A betting app similar to My Fantasy, allowing league creation, team formation, player selection, and real-time bet tracking with exciting rewards.",
+  "A portfolio app showcasing projects, work experience, expertise, and services. Features a modern UI, contact details, and social media integration.",
+  "An error solver app using Google’s ML text extraction and Gemini for solutions and suggestions, offering accurate fixes through advanced machine learning.",
+  "A responsive app similar to Book My Show for event ticket booking, providing real-time updates, an intuitive interface, and cross-platform compatibility.",
+  "An interactive learning app for exploring network types and virtual data centers, featuring immersive simulations, tutorials, and real-world scenarios.",
+  "A field surveying app for placing pipes, calculating usage, and generating detailed bills with inventory integration and PDF export capabilities."
 ];

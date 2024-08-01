@@ -3,7 +3,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_space/Helpers/Styles/style.dart';
+import 'package:my_space/Widgets/contact_widget.dart';
 import 'package:my_space/Widgets/custom_drawer_widget.dart';
+import 'package:my_space/Widgets/custom_project_card_widget.dart';
 import 'package:my_space/Widgets/logo_widget.dart';
 import 'package:my_space/Widgets/projects_widget.dart';
 import 'package:my_space/Widgets/role_widget.dart';
@@ -33,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Switch(
               inactiveThumbImage: const AssetImage("assets/images/sun.png"),
               activeThumbImage: const AssetImage("assets/images/moon.png"),
+              activeColor: CustomColors.switchActiveColor,
               // activeColor: CustomColors.blueColor,
               // inactiveTrackColor: const Color(0xffF8F8F8),
               value: context.read<ThemeBloc>().state == ThemeMode.dark,
@@ -79,24 +83,26 @@ class _HomeScreenState extends State<HomeScreen> {
                         GoogleFonts.montserrat(fontWeight: FontWeight.w600)
                             .fontFamily),
               ),
+              const SizedBox(
+                height: 10,
+              ),
               const RoleWidget(),
               const SizedBox(
-                height: 5,
+                height: 20,
               ),
               const SocialLinksWidget(),
-              const SizedBox(
-                height: 5,
+              const SideTitleWidget(
+                title: "About Me",
+                subTitle: "Who am I ?",
+                needSubTitle: true,
+                topSpacing: 20,
+                bottomSpacing: 10,
               ),
-              const Text(
-                "About Me",
-                style: TextStyle(fontSize: 36, fontWeight: FontWeight.w500),
-              ),
-              const SideTitleWidget(text: "Who am I ?"),
               const Text(
                   "I am a Mobile Application Developer with 1.7 years of overall experience, including 1.5 years focused on cross-platform app development using Flutter at AVASOFT Inc. In this role, I have successfully managed and collaborated with teams to deploy apps on both the App Store and Play Store. Additionally, I have expertise in VR and AR app development, having successfully developed two applications in this domain."),
-              const SkillsWidget(),
-              const ServicesWidget(),
               const ProjectsWidget(),
+              const ServicesWidget(),
+              const SkillsWidget(),
             ],
           ),
         ),

@@ -20,52 +20,55 @@ class CustomCardWidget extends StatelessWidget {
     return BlocConsumer<ThemeBloc, ThemeMode>(
       listener: (context, state) {},
       builder: (context, state) {
-        return Card.filled(
-          elevation: 10,
-          shadowColor: CustomColors.iconDarkColor,
-          color: state == ThemeMode.light
-              ? CustomColors.iconLightColor
-              : CustomColors.cardDarkColor,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 30),
-                child: Image.asset(
+        return Padding(
+          padding: const EdgeInsets.only(top: 5),
+          child: Card.filled(
+            elevation: 10,
+            shadowColor: CustomColors.iconDarkColor,
+            color: state == ThemeMode.light
+                ? CustomColors.iconLightColor
+                : CustomColors.cardDarkColor,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
                   imagePath,
                   height: 80,
                   color: state == ThemeMode.light
                       ? CustomColors.iconDarkColor
                       : CustomColors.iconLightColor,
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              needImageTitle
-                  ? Text(
-                      imageTitle ?? "",
-                      style: const TextStyle(fontWeight: FontWeight.w700),
-                    )
-                  : const SizedBox.shrink(),
-              needImageTitle
-                  ? const SizedBox(
-                      height: 30,
-                    )
-                  : const SizedBox.shrink(),
-              SizedBox(
-                  width: 250,
-                  child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Text(
-                          service,
-                          textAlign: TextAlign.center,
-                        ),
-                      )))
-            ],
+                const SizedBox(
+                  height: 30,
+                ),
+                needImageTitle
+                    ? Text(
+                        imageTitle ?? "",
+                        style: const TextStyle(fontWeight: FontWeight.w700),
+                      )
+                    : const SizedBox.shrink(),
+                needImageTitle
+                    ? const SizedBox(
+                        height: 30,
+                      )
+                    : const SizedBox.shrink(),
+                SizedBox(
+                    width: 250,
+                    child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          child: Text(
+                            service,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                                fontSize: 19, fontWeight: FontWeight.w500),
+                          ),
+                        )))
+              ],
+            ),
           ),
         );
       },

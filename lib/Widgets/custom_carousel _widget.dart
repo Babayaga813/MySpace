@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:my_space/Widgets/side_title_widget.dart';
 
 import 'custom_card_widget.dart';
 
@@ -26,15 +27,14 @@ class CustomCarouselWidget extends StatelessWidget {
     return Align(
       alignment: Alignment.center,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            titleText,
-            style: const TextStyle(fontSize: 36, fontWeight: FontWeight.w500),
-          ),
-          Text(
-            subTitleText,
-            style: const TextStyle(fontWeight: FontWeight.w500),
-          ),
+          SideTitleWidget(
+              title: titleText,
+              subTitle: subTitleText,
+              needSubTitle: true,
+              topSpacing: 32,
+              bottomSpacing: 32),
           CarouselSlider.builder(
               itemCount: imagePaths.length,
               itemBuilder:
@@ -43,13 +43,13 @@ class CustomCarouselWidget extends StatelessWidget {
                   imagePath: imagePaths[itemIndex],
                   service: descriptions[itemIndex],
                   needImageTitle: needImageTitle,
-                  imageTitle: '',
+                  imageTitle: imageTitles?[itemIndex] ?? "",
                 );
               },
               options: CarouselOptions(
+                  // enlargeFactor: 0.2,
                   aspectRatio: aspectRatio,
                   viewportFraction: 0.65,
-                  reverse: true,
                   autoPlay: true,
                   enlargeCenterPage: true))
         ],
