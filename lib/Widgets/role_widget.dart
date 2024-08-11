@@ -7,37 +7,43 @@ class RoleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            const Icon(
-              Icons.play_arrow_rounded,
-              color: CustomColors.blueColor,
-            ),
-            AnimatedTextKit(repeatForever: true, animatedTexts: [
-              TyperAnimatedText(
-                "Flutter Developer",
-                textStyle:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                speed: const Duration(milliseconds: 50),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              const Icon(
+                Icons.play_arrow_rounded,
+                color: CustomColors.blueColor,
               ),
-              TyperAnimatedText(
-                "Beginner in cloud (AWS)",
-                textStyle:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                speed: const Duration(milliseconds: 50),
-              ),
-              TyperAnimatedText(
-                "Cyber security",
-                textStyle:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                speed: const Duration(milliseconds: 50),
-              ),
-            ])
-          ],
-        ),
-      ],
+              AnimatedTextKit(repeatForever: true, animatedTexts: [
+                TyperAnimatedText(
+                  "Flutter Developer",
+                  textStyle: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.w500),
+                  speed: const Duration(milliseconds: 50),
+                ),
+                TyperAnimatedText(
+                  "Beginner in cloud (AWS)",
+                  textStyle: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.w500),
+                  speed: const Duration(milliseconds: 50),
+                ),
+                TyperAnimatedText(
+                  "Cyber security",
+                  textStyle: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.w500),
+                  speed: const Duration(milliseconds: 50),
+                ),
+              ])
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+        ],
+      ),
     );
   }
 }

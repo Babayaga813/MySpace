@@ -18,34 +18,37 @@ class SideTitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          height: topSpacing,
-        ),
-        Text(
-          title,
-          style: const TextStyle(fontSize: 36, fontWeight: FontWeight.w600),
-        ),
-        needSubTitle
-            ? const SizedBox(
-                height: 8,
-              )
-            : const SizedBox.shrink(),
-        needSubTitle
-            ? Text(
-                subTitle,
-                style: const TextStyle(
-                    color: CustomColors.blueColor,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16),
-              )
-            : const SizedBox.shrink(),
-        SizedBox(
-          height: bottomSpacing,
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: topSpacing,
+          ),
+          Text(
+            title,
+            style: const TextStyle(fontSize: 36, fontWeight: FontWeight.w600),
+          ),
+          needSubTitle
+              ? const SizedBox(
+                  height: 8,
+                )
+              : const SizedBox.shrink(),
+          needSubTitle
+              ? Text(
+                  subTitle,
+                  style: const TextStyle(
+                      color: CustomColors.blueColor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16),
+                )
+              : const SizedBox.shrink(),
+          SizedBox(
+            height: bottomSpacing,
+          ),
+        ],
+      ),
     );
   }
 }

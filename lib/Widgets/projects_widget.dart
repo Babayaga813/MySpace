@@ -3,37 +3,44 @@ import 'package:my_space/Widgets/side_title_widget.dart';
 import 'custom_project_card_widget.dart';
 
 class ProjectsWidget extends StatelessWidget {
-  const ProjectsWidget({super.key});
+  const ProjectsWidget({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SideTitleWidget(
-          title: "Projects",
-          subTitle: "Here are my few previous and ongoing work",
-          needSubTitle: true,
-          topSpacing: 32,
-          bottomSpacing: 32,
-        ),
-        ListView.separated(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: _projectImages.length,
-          itemBuilder: (context, index) {
-            return CustomProjectCardWidget(
-                projectImage: _projectImages[index],
-                projectName: _projectNames[index],
-                projectDetail: _projectDetails[index]);
-          },
-          separatorBuilder: (context, index) {
-            return const SizedBox(
-              height: 10,
-            );
-          },
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SideTitleWidget(
+            title: "Projects",
+            subTitle: "Here are my few previous and ongoing work",
+            needSubTitle: true,
+            topSpacing: 32,
+            bottomSpacing: 32,
+          ),
+          ListView.separated(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: _projectImages.length,
+            itemBuilder: (context, index) {
+              return CustomProjectCardWidget(
+                  projectImage: _projectImages[index],
+                  projectName: _projectNames[index],
+                  projectDetail: _projectDetails[index]);
+            },
+            separatorBuilder: (context, index) {
+              return const SizedBox(
+                height: 10,
+              );
+            },
+          )
+        ],
+      ),
     );
   }
 }

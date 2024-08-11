@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:my_space/Widgets/custom_carousel%20_widget.dart';
 
 class ServicesWidget extends StatelessWidget {
-  const ServicesWidget({super.key});
+  const ServicesWidget({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return CustomCarouselWidget(
-        aspectRatio: 16 / 12,
+        aspectRatio: 16 / 11,
         titleText: "What I can do?",
         subTitleText: "Not perfect, but my skills make an impact.",
         needImageTitle: false,
